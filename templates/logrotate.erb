@@ -1,0 +1,8 @@
+<%= @log_dir %>/influxdb-relay.log {
+    daily
+    rotate 7
+    missingok
+    dateext
+    copytruncate
+    compress
+}

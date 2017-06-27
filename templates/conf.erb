@@ -1,0 +1,24 @@
+[[http]]
+name = "<%= @http_name %>"
+bind-addr = "<%= @http_bind_address %>:<%= @http_bind_port %>"
+<%- if @ssl_cert -%>
+ssl-combined-pem = "<%= @ssl_cert %>"
+<%- end -%>
+
+output = [
+<%- @http_outputs.each do |output| -%>
+  { <%= output %> },
+<%- end -%>
+]
+
+[[udp]]
+name = "<%= @udp_name %>"
+bind-addr = "<%= @udp_bind_address %>:<%= @udp_bind_port %>"
+read-buffer = <%= @udp_read_buffer %>
+precision = "<%= @precision %>"
+
+output = [
+<%- @udp_outputs.each do |output| -%>
+  { <%= output %> },
+<%- end -%>
+]
