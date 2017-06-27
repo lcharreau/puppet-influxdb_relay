@@ -2,11 +2,11 @@
   "name": "spacepants-influxdb_relay",
   "version": "0.1.0",
   "author": "Paul Bailey",
-  "summary": "",
+  "summary": "Module for installing and managing influxdb-relay",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": "",
-  "issues_url": "",
+  "source": "https://github.com/spacepants/puppet-influxdb_relay.git",
+  "project_page": "https://github.com/spacepants/puppet-influxdb_relay",
+  "issues_url": "https://github.com/spacepants/puppet-influxdb_relay/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
