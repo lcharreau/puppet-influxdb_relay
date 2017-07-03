@@ -24,6 +24,10 @@ describe 'profiles class' do
       apply_manifest(pp, catch_changes: true)
     end
 
+    describe port(9096) do
+      it { is_expected.to be_listening }
+    end
+
     describe service('influxdb-relay') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
