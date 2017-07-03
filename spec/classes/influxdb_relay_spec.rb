@@ -12,17 +12,6 @@ output = [
   { name="local1", location="http://172.16.254.254:8086/write", timeout="10s" },
   { name="local2", location="http://172.16.254.254:7086/write", timeout="10s" },
 ]
-
-[[udp]]
-name = "foo.example.com-udp"
-bind-addr = "172.16.254.254:9096"
-read-buffer = 0
-precision = "n"
-
-output = [
-  { name="local1", location="172.16.254.254:8089", mtu=512 },
-  { name="local2", location="172.16.254.254:7089", mtu=1024 },
-]
 '
       }
 

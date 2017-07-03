@@ -31,34 +31,4 @@ class influxdb_relay::params {
       fail("${::osfamily} not supported")
     }
   }
-
-  $http_backends = {
-    local1 => {
-      location => "http://${::ipaddress}:8086/write",
-      params   => {
-        timeout => '10s',
-      },
-    },
-    local2 => {
-      location => "http://${::ipaddress}:7086/write",
-      params   => {
-        timeout => '10s',
-      },
-    },
-  }
-
-  $udp_backends = {
-    local1 => {
-      location => "${::ipaddress}:8089",
-      params   => {
-        mtu => 512,
-      },
-    },
-    local2 => {
-      location => "${::ipaddress}:7089",
-      params   => {
-        mtu => 1024,
-      },
-    },
-  }
 }
