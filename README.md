@@ -69,7 +69,7 @@ output = [
 HTTP backends can be declared like in the following example:
 
 ```puppet
-class { '::influxdb':
+class { '::influxdb_relay':
   http_backends => {
     backend1 => {
       location => 'http://10.2.3.4:8086/write',
@@ -93,7 +93,7 @@ class { '::influxdb':
 Additional options such as [buffering failed requests](https://github.com/influxdata/influxdb-relay#buffering) can be accomplished by providing the desired parameters.
 
 ```puppet
-class { '::influxdb':
+class { '::influxdb_relay':
   http_backends => {
     backend1 => {
       location => 'http://10.2.3.4:8086/write',
@@ -112,7 +112,7 @@ class { '::influxdb':
 UDP backends are specified similarly to HTTP backends.
 
 ```puppet
-class { '::influxdb':
+class { '::influxdb_relay':
   udp_backends => {
     backend1 => {
       location => '10.2.3.4:8089',
@@ -129,7 +129,7 @@ class { '::influxdb':
 Enabling SSL can be accomplished by providing the filename of the combined PEM certificate.
 
 ```puppet
-class { '::influxdb':
+class { '::influxdb_relay':
   ssl_cert_name => 'certificate.pem',
 }
 ```
@@ -137,7 +137,7 @@ class { '::influxdb':
 By default, the module presumes that the certificate is in the OS default certificate store, (`/etc/ssl` on Debian family systems, `/etc/pki/tls/certs` on RedHat family systems) but this can be overridden by providing the path to the directory.
 
 ```puppet
-class { '::influxdb':
+class { '::influxdb_relay':
   ssl_cert_name => 'certificate.pem',
   ssl_dir       => '/path/to/your/directory',
 }
