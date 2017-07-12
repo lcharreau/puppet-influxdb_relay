@@ -1,6 +1,6 @@
 {
   "name": "spacepants-influxdb_relay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Paul Bailey",
   "summary": "Module for installing and managing influxdb-relay",
   "license": "Apache-2.0",
