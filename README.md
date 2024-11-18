@@ -185,7 +185,7 @@ Name of the HTTP server. Default: "${::fqdn}-http"
 
 #### `http_bind_address`
 
-TCP address to bind to for HTTP server. Default: $::ipaddress
+TCP address to bind to for HTTP server. Default: $::facts['networking']['ip']
 
 #### `http_bind_port`
 
@@ -201,7 +201,7 @@ Name of the UDP server. Default: "${::fqdn}-udp"
 
 #### `udp_bind_address`
 
-UDP address to bind to. Default: $::ipaddress
+UDP address to bind to. Default: $::facts['networking']['ip']
 
 #### `udp_bind_port`
 

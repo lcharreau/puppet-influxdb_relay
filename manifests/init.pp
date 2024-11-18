@@ -10,12 +10,12 @@
 # @param manage_service Whether to manage the influxdb-relay service. Default: true
 # @param service_enable Whether to enable the influxdb-relay service. Default: true
 # @param service_ensure Desired service state. Default: 'running'
-# @param http_name Name of the HTTP server. Default: "${::fqdn}-http"
-# @param http_bind_address TCP address to bind to for HTTP server. Default: $::ipaddress
+# @param http_name Name of the HTTP server. Default: "${::facts['networking']['fqdn']}-http"
+# @param http_bind_address TCP address to bind to for HTTP server. Default: $::facts['networking']['ip']
 # @param http_bind_port TCP port to bind to for HTTP server. Default: 9096
 # @param http_backends A hash of InfluxDB instances to use as HTTP backends for relay. See examples.
-# @param udp_name Name of the UDP server. Default: "${::fqdn}-udp"
-# @param udp_bind_address UDP address to bind to. Default: $::ipaddress
+# @param udp_name Name of the UDP server. Default: "${::facts['networking']['fqdn']}-udp"
+# @param udp_bind_address UDP address to bind to. Default: $::facts['networking']['ip']
 # @param udp_bind_port UDP port to bind to. Default: 9096
 # @param udp_read_buffer Socket buffer size for incoming connections. Default: 0
 # @param precision Precision to use for timestamps. Default: 'n'
@@ -34,12 +34,12 @@ class influxdb_relay (
   Boolean                   $manage_service    = true,
   Boolean                   $service_enable    = true,
   Enum['running','stopped'] $service_ensure    = 'running',
-  String                    $http_name         = "${::fqdn}-http",
-  String                    $http_bind_address = $::ipaddress,
+  String                    $http_name         = "${::facts['networking']['fqdn']}-http",
+  String                    $http_bind_address = $::facts['networking']['ip'],
   Integer                   $http_bind_port    = 9096,
   Hash                      $http_backends     = {},
-  String                    $udp_name          = "${::fqdn}-udp",
-  String                    $udp_bind_address  = $::ipaddress,
+  String                    $udp_name          = "${::facts['networking']['fqdn']}-udp",
+  String                    $udp_bind_address  = $::facts['networking']['ip'],
   Integer                   $udp_bind_port     = 9096,
   Integer                   $udp_read_buffer   = 0,
   String                    $precision         = 'n',

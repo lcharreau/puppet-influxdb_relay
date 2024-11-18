@@ -4,10 +4,10 @@
 #
 class influxdb_relay::params {
 
-  case $::osfamily {
+  case $::facts['os']['family'] {
     'Debian': {
       $ssl_dir = '/etc/ssl'
-      case $::operatingsystemmajrelease {
+      case $::facts['os']['release']['major'] {
         '8', '16.04': {
           $service_type = 'systemd'
         }
@@ -18,7 +18,7 @@ class influxdb_relay::params {
     }
     'RedHat': {
       $ssl_dir = '/etc/pki/tls/certs'
-      case $::operatingsystemmajrelease {
+      case $::facts['os']['release']['major'] {
         '7': {
           $service_type = 'systemd'
         }
@@ -28,7 +28,7 @@ class influxdb_relay::params {
       }
     }
     default: {
-      fail("${::osfamily} not supported")
+      fail("${::facts['os']['family']} not supported")
     }
   }
 }
